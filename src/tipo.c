@@ -6,8 +6,6 @@
  */
 
 #include "tipo.h"
-#include "avion.h"
-#include "aerolinea.h"
 #include "funciones.h"
 
 int listarTipos(eTipo tipos[], int tam){
@@ -16,11 +14,13 @@ int listarTipos(eTipo tipos[], int tam){
 
 		if(tipos != NULL && tam > 0){
 		 // system("cls");
-			printf("\n\n   *** Lista de Tipos  ***\n");
+			printf("\n *** Lista de Tipos  ***\n");
 			printf("  Id    Descripcion\n");
-			printf("-----------------------\n");
+			printf("--------------------\n");
 			for(int i=0; i < tam; i++){
-				printf(" %4d    %10s\n", tipos[i].id, tipos[i].descripcion);
+				if(validarRangoEntero(tipos[i].id, 5000, 5003)){
+					printf(" %4d    %10s\n", tipos[i].id, tipos[i].descripcion);
+				}
 			}
 			printf("\n\n");
 			kay = 1;

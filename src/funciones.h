@@ -28,6 +28,9 @@ char menu(char* msj);
 
 int ingresarInt(char* msj, char* msjError, int rangoBajo, int rangoAlto);
 int validarRangoEntero(int valor, int inferior, int superior);
+void swapInt(int* a, int* b);
+int ingresarSexo(char* sexo, char* msj, char* msjError);
+int ingresarString(char pString[], char* msj, char* msjError, int rangoBajo, int rangoAlto);
 /**
  * \brief -Valida que el caracter que ingrese sea una letra y la convierte en minuscula.
  * \param letra -Caracter a validar y convierte a minuscula.

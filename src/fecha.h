@@ -17,4 +17,4 @@ typedef struct{
 #endif // FECHA_H_INCLUDED
 
 
-
+int validarFecha(eFecha fecha);

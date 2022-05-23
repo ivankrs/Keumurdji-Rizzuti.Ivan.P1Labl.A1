@@ -30,7 +30,7 @@ char menu(char* msj){
     scanf("%c", &opcion);
 
     while(!validarLetraMinus(opcion)){
-    	printf("\n¡Ingrese opcion valida! (A-B-C-D-E-F-G-H-I o S): ");
+    	printf("\n¡Ingrese opcion valida! (A-B-C-D-E-F-G-H-I o X): ");
     	fflush(stdin);
     	scanf("%c", &opcion);
 
@@ -71,8 +71,60 @@ int validarRangoEntero(int valor, int inferior, int superior){
     }
     return esValido;
 }
+void swapInt(int* a, int* b){
+	int aux;
 
+	aux = *a;
+	*a = *b;
+	*b = aux;
 
+}
+int ingresarSexo(char* sexo, char* msj, char* msjError){
+	int kay=0;
+	char auxCar;
+
+	if(msj != NULL && msjError!=NULL){
+		printf("%s", msj);
+		fflush(stdin);
+		scanf("%c", &auxCar);
+		auxCar=toupper(auxCar);
+
+		while(auxCar != 'M' && auxCar != 'F')
+		{
+			printf("%s",msjError);
+			fflush(stdin);
+			scanf("%c", &auxCar);
+			auxCar=toupper(auxCar);
+		}
+
+		*sexo = auxCar;
+		kay=1;
+	}
+
+	return kay;
+}
+
+int ingresarString(char pString[], char* msj, char* msjError, int rangoBajo, int rangoAlto){
+	int kay=0;
+	char auxCad[100];
+
+	if(pString != NULL && msj != NULL && msjError!=NULL && rangoBajo < rangoAlto){
+		printf("%s", msj);
+		fflush(stdin);
+		gets(auxCad);
+
+		while(strlen(auxCad) >= rangoAlto || strlen(auxCad) <= rangoBajo)
+		{
+			printf("%s",msjError);
+			fflush(stdin);
+			gets(auxCad);
+		}
+		strcpy(pString, auxCad);
+		kay=1;
+	}
+
+	return kay;
+}
 
 void confirmarSalida(char* p){
     char confirma;

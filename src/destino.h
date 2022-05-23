@@ -17,3 +17,6 @@ float precio;
 }eDestino;
 
 #endif /* DESTINO_H_ */
+
+
+int listarDestinos(eDestino destinos[], int tam);

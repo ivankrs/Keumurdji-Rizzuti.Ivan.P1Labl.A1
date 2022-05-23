@@ -8,6 +8,8 @@
 #ifndef AEROLINEA_H_
 #define AEROLINEA_H_
 
+
+
 typedef struct{
 
 int id;// comieza en 1000
@@ -18,3 +20,4 @@ char descripcion[20];
 #endif /* AEROLINEA_H_ */
 
 int listarAerolineas(eAerolinea aerolineas[], int tam);
+
