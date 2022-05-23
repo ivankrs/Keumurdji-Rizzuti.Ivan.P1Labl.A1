@@ -38,3 +38,4 @@ int listarAvionDeUnTipo(eAvion aviones[], int tamAv, eAerolinea aerolineas[], in
 int promedioJet(eAvion aviones[], int tamAv, eAerolinea aerolineas[], int tamAero, eTipo tipos[], int tamT, ePiloto pilotos[], int tamP);
 int listarAvionPorAerolineas(eAvion aviones[], int tamAv, eAerolinea aerolineas[], int tamAero, eTipo tipos[], int tamT, ePiloto pilotos[], int tamP);
 int listarAerolineaMasPasajeros(eAvion aviones[], int tamAv, eAerolinea aerolineas[], int tamAero);
+int listarAerolineaMenosAviones(eAvion aviones[], int tamAv, eAerolinea aerolineas[], int tamAero);

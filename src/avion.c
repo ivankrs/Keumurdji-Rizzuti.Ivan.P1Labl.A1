@@ -368,11 +368,11 @@ int listarAerolineaMasPasajeros(eAvion aviones[], int tamAv, eAerolinea aeroline
 
 	int kay = 0;
 	int idAero;
-	int cant;
-	int cantU;
-	int cantD;
-	int cantT;
-	int cantC;
+	int cant=0;
+	int cantU=0;
+	int cantD=0;
+	int cantT=0;
+	int cantC=0;
 	int cantTotal;
 
 	if(aviones!=NULL && tamAv>0 && aerolineas!=NULL && tamAero>0){
@@ -395,40 +395,91 @@ int listarAerolineaMasPasajeros(eAvion aviones[], int tamAv, eAerolinea aeroline
 			}
 		}
 		if(cant>(cantU && cantD && cantT && cantC)){
-			idAero = 1000;
+			idAero = 0;
 			cantTotal = cant;
 		}
 		else if(cantU> (cant && cantD && cantT && cantC)){
-			idAero = 1001;
+			idAero = 1;
 			cantTotal = cantU;
 		}
 		else if(cantD> (cant && cantU && cantT && cantC)){
-			idAero = 1002;
+			idAero = 2;
 			cantTotal = cantD;
 		}
 		else if(cantT> (cant && cantD && cantU && cantC)){
-			idAero = 1003;
+			idAero = 3;
 			cantTotal = cantT;
 		}
 		else if(cantC> (cant && cantD && cantU && cantT)){
-			idAero = 1004;
+			idAero = 4;
 			cantTotal = cantC;
 		}
 
 			printf("\n         *** Informe Aerolinea con mas Pasajeros ***\n");
-			printf(" Id Aerolineas   Descripcion   Capacidad Total\n");
+			printf(" Id Aerolineas   Descripcion   Capacidad Total pasajeros\n");
 			printf("----------------------------------------------------------------\n");
 
-				if( validarRangoEntero(aviones[i].id, 0, tamAv) &&
-					validarRangoEntero(aviones[i].idAerolinea, idAero, idAero) &&
-					validarRangoEntero(aviones[i].capacidad, 10, 300)){
+			printf("     %4d    %10s                 %5d\n", aerolineas[idAero].id , aerolineas[idAero].descripcion, cantTotal);
 
-					printf(" %4d        %10s     %5d\n", aviones[i].idAerolinea, aerolineas[idAero].descripcion, cantTotal);
-
-				}
-
-			printf("\n\n");
 			kay = 1;
-		}
+	}
 	 return kay;
+}
+int listarAerolineaMenosAviones(eAvion aviones[], int tamAv, eAerolinea aerolineas[], int tamAero){
+	int kay = 0;
+	int idAero;
+	int cant=0;
+	int cantU=0;
+	int cantD=0;
+	int cantT=0;
+	int cantC=0;
+	int cantTotal;
+
+	if(aviones!=NULL && tamAv>0 && aerolineas!=NULL && tamAero>0){
+		for(int i=0; i<tamAv; i++){
+			if(aviones[i].idAerolinea==1000){
+					cant ++;
+				}
+				if(aviones[i].idAerolinea==1001){
+					cantU ++;
+				}
+				if(aviones[i].idAerolinea==1002){
+					cantD ++;
+				}
+				if(aviones[i].idAerolinea==1003){
+					cantT ++;
+				}
+				if(aviones[i].idAerolinea==1004){
+					cantC ++;
+				}
+			}
+		if(cant>(cantU && cantD && cantT && cantC)){
+			idAero = 0;
+			cantTotal = cant;
+		}
+		else if(cantU> (cant && cantD && cantT && cantC)){
+			idAero = 1;
+			cantTotal = cantU;
+		}
+		else if(cantD> (cant && cantU && cantT && cantC)){
+			idAero = 2;
+			cantTotal = cantD;
+		}
+		else if(cantT> (cant && cantD && cantU && cantC)){
+			idAero = 3;
+			cantTotal = cantT;
+		}
+		else if(cantC> (cant && cantD && cantU && cantT)){
+			idAero = 4;
+			cantTotal = cantC;
+		}
+		printf("\n    *** Informe Aerolinea menos Aviones ***\n");
+		printf(" Id Aerolineas   Descripcion   Capacidad de Aviones\n");
+		printf("----------------------------------------------------\n");
+
+		printf("     %4d    %10s              %5d\n", aerolineas[idAero].id , aerolineas[idAero].descripcion, cantTotal);
+
+		kay = 1;
+	}
+	return kay;
 }

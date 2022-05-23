@@ -48,38 +48,38 @@ int main(void) {
 			{20003, "Amsterdam", 95600}
 	};
 
-	eAvion aviones[TANS]=
+	eAvion aviones[TANS];/*=
 	{
 			{1, 1002, 5000, 0, 10},
 			{0, 1001, 5001, 1, 300},
 			{3, 1000, 5003, 2, 30},
 			{4, 1000, 5003, 3, 35}
-	};
+	};*/
 
-	ePiloto pilotos[TANS]=
+	ePiloto pilotos[TANS];/*=
 	{
 			{0,"ivan",'M',},
 			{1,"ivana",'F',},
-			{2,"van",'M',},
-			{3,"vana",'F',}
-	};
+			{2,"juan",'M',},
+			{3,"juana",'F',}
+	};*/
 
-	eVuelo vuelos[TANS]=
+	eVuelo vuelos[TANS];/*=
 	{
 			{1, 102, 20003, 10,02,2021},
 			{0, 101, 20001, 30,10,2021},
 			{3, 100, 20002, 21,05,2021},
 			{2, 103, 20000, 25,11,2021}
-	};
+	};*/
 	int idAvion;
 	int idVuelo=0;
-	int flagAlta= 1;
+	int flagAlta= 0;
 	char salir='x';
 
 
 	setbuf(stdout,NULL);
-	/*inicializarIdAvion(aviones, TANS);
-	inicializarIdPiloto(pilotos, TANS);*/
+	inicializarIdAvion(aviones, TANS);
+	inicializarIdPiloto(pilotos, TANS);
 
 
 	do{
@@ -266,6 +266,14 @@ int main(void) {
 			break;
 
 		case 'o':
+			if(flagAlta){
+				if( !(listarAerolineaMenosAviones(aviones, TANS, aerolineas, TAN))){
+					printf("\n¡Ocurrio un problema!\n");
+				}
+			}
+			else{
+				printf("\n¡Debe haber dado de alta para entrar a esta opcion!\n");
+			}
 			break;
 
 		case 'x':
